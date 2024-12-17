@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductDetails = ({ product, onBack, addToCart }) => {
+const Produtos = ({ product, onBack, addCarrinho }) => {
   return (
     <div className="container mt-5">
       <button className="btn btn-secondary mb-3" onClick={onBack}>
@@ -18,7 +18,7 @@ const ProductDetails = ({ product, onBack, addToCart }) => {
           <p>{product.description}</p>
           <button
             className="btn btn-primary mt-3"
-            onClick={() => addToCart(product)}
+            onClick={() => addCarrinho(product)}
           >
             Adicionar ao Carrinho
           </button>
@@ -28,4 +28,4 @@ const ProductDetails = ({ product, onBack, addToCart }) => {
   );
 };
 
-export default ProductDetails;
+export default Produtos;

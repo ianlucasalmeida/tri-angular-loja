@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Handle';
 import Footer from './Footer';
 import Card from './Card';
@@ -32,7 +31,7 @@ function App() {
       });
   }, []);
 
-  const handleViewProduct = (product) => {
+  const visaoProduto = (product) => {
     setSelectedProduct(product);
   };
 
@@ -40,21 +39,21 @@ function App() {
     setSelectedProduct(null);
   };
 
-  const addToCart = (product) => {
+  const addCarrinho = (product) => {
     setCart([...cart, product]);
   };
 
-  const handleViewCart = () => {
+  const handleVisaoCarrinho = () => {
     setShowCart(true);
   };
 
-  const handleBackToProductsFromCart = () => {
+  const voltarProdutos = () => {
     setShowCart(false);
   };
 
   return (
     <div>
-      <Header onViewCart={handleViewCart} />
+      <Header onViewCart={handleVisaoCarrinho} />
       <div className="container mt-5">
         {loading ? (
           <div className="text-center">
@@ -68,14 +67,14 @@ function App() {
             {error}
           </div>
         ) : showCart ? (
-          <Cart cart={cart} onBack={handleBackToProductsFromCart} />
+          <Cart cart={cart} onBack={voltarProdutos} />
         ) : selectedProduct ? (
-          <ProductDetails product={selectedProduct} onBack={handleBackToProducts} addToCart={addToCart} />
+          <ProductDetails product={selectedProduct} onBack={handleBackToProducts} addToCart={addCarrinho} />
         ) : (
           <div className="row">
             {products.map((product) => (
               <div key={product.id} className="col-md-3 d-flex justify-content-center">
-                <Card product={product} addToCart={addToCart} onViewProduct={handleViewProduct} />
+                <Card product={product} addCarrinho={addCarrinho} onVisaoProdutos={visaoProduto} />
               </div>
             ))}
           </div>

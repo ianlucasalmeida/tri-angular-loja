@@ -21,13 +21,13 @@ export default function Card(props) {
         <div className="d-flex justify-content-between w-100">
           <button
             className="btn btn-primary mt-3"
-            onClick={() => props.addToCart(props.product)}
+            onClick={() => props.addCarrinho(props.product)}
           >
             Adicionar ao Carrinho
           </button>
           <button
             className="btn btn-secondary mt-3"
-            onClick={() => props.onViewProduct(props.product)}
+            onClick={() => props.onVisaoProdutos(props.product)}
           >
             Visualizar Produto
           </button>
